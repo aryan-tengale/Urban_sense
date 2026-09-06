@@ -88,7 +88,7 @@ DEMO_STEP_METADATA = [
 ]
 
 def get_current_demo_state() -> dict:
-    global current_demo_step
+
     meta = DEMO_STEP_METADATA[current_demo_step - 1]
     return {
         "current_step": current_demo_step,
