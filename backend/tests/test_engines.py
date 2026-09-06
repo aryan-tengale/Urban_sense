@@ -6,9 +6,15 @@ Verifies Multi-Bus Evidence Fusion, Road Health Calculation, and Offline Queuein
 import unittest
 import os
 import json
+import tempfile
 
 # Point tests to a dedicated test database
-os.environ["URBANSENSE_DB_PATH"] = "/Users/aryantengale/.gemini/antigravity-ide/scratch/urbansense-ai/backend/test_urbansense.db"
+import tempfile
+
+test_db_dir = tempfile.gettempdir()
+os.environ["URBANSENSE_DB_PATH"] = os.path.join(
+    test_db_dir, "test_urbansense.db"
+)
 
 from database import init_db, seed_database, get_db, haversine_distance_meters
 from fusion_engine import fuse_event_observation
